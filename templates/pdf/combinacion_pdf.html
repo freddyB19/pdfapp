@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} PDF Combinados {% endblock title %}
+
+{% block content %}
+	<h1 class="text-center display-5 mb-4">Archivos Combinados</h1>
+
+	{% if  merge %}
+		<div class="d-flex justify-content-center mt-3">
+			<div class="card " style="width: 28rem;">
+			  <div class="card-body text-center">
+			    <h5 class="card-title text-center">Unión completada</h5>
+			    <p class="card-text">
+			    	
+			    </p>
+			    <a href="{{merge}}" download="pdf_combinados.pdf" class="btn btn-outline-success mt-3">Descargar Archivo</a>
+			  </div>
+			</div>
+		</div>
+
+	{% else %}
+		<p>
+			No hay archivos para descargar.
+		</p>
+	{% endif %}
+
+	
+
+	
+
+
+
+{% endblock content %}

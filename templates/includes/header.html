@@ -1,0 +1,7 @@
+<header class="mt-3">
+	<nav class="nav nav-underline">
+		{% if request.endpoint != 'pdf.index' %}
+			<a href="{{url_for('pdf.index')}}" class="nav-link active">Inicio</a>
+		{% endif %}
+	</nav>
+</header>

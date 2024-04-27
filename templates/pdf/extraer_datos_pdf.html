@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block blockname %} Formulario PDF{% endblock blockname %}
+
+{% block content %}
+	<h1 class="display-5 text-center">{{titulo}}</h1>
+
+	{% if form %}
+		{% from "includes/macros/forms.html" import render_field %}
+		<form method="POST" enctype="multipart/form-data" class="mt-5 mx-auto" style="width: 40rem;"> {{ form.csrf_token }}
+			
+			{% for field in form %}
+				{{render_field(field)}}
+			{% endfor %}
+
+			<div class="d-grid gap-2 mb-5">
+				<button type="submit" class="btn btn-primary">Subir PDF</button>
+			</div>
+		</form>
+
+		<div class="mb-5"></div>
+
+	{% endif %}
+
+
+{% endblock content %}
+

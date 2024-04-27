@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} Texto {% endblock title %}
+
+{% block content %}
+	<h1 class="text-center display-5 mb-4">Texto extraido</h1>
+
+	{% if lista_texto %}
+	<div class="d-flex align-items-start mb-5">
+		<div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+			
+			{% for info in lista_texto %}
+				{% set pag, info_pag = info %}
+					<button class="nav-link {% if loop.first %} active {% endif %}" id="v-pills-{{loop.index}}-tab" data-bs-toggle="pill" data-bs-target="#v-pills-{{loop.index}}" type="button" role="tab" aria-controls="v-pills-{{loop.index}}" aria-selected="{% if loop.first %}true{% else %}false{% endif %}"><small>Página: {{pag}}</small></button>					
+			 {% endfor %}
+		</div>
+		<div class="tab-content" id="v-pills-tabContent">
+			{% for info in lista_texto %}
+				{% set pag, info_pag = info %}
+					<div class="tab-pane fade {% if loop.first %} show active {% endif %}" id="v-pills-{{loop.index}}" role="tabpanel" aria-labelledby="v-pills-{{loop.index}}-tab" tabindex="0">
+			    	{{info_pag}}
+			    	</div>
+			 {% endfor %}
+		</div>
+	</div>
+		
+	{% else %}
+		<p>No hay información para mostrar</p>
+
+
+	{% endif %}
+
+{% endblock content %}

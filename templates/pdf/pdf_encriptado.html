@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} PDF Bloqueado {% endblock title %}
+
+{% block content %}
+
+ 	<h1 class="text-center display-5 mb-4">Tu información ahora está más segura</h1>
+
+	{% if pdf_encry %}
+		<div class="d-flex justify-content-center mt-3">
+			<div class="card " style="width: 28rem;">
+			  <div class="card-body text-center">
+			    <h5 class="card-title text-center">PDF Encriptado</h5>
+			    <a href="{{pdf_encry}}" download="pdf_encriptado.pdf" class="btn btn-outline-success my-3">Descargar</a>
+			    <p class="card-text">
+			    	<small>Recuerdo que para leer este pdf deberá ingresar una contraseña.</small>
+			    </p>
+			  </div>
+			</div>
+		</div>
+		
+	{% endif %}
+	
+
+{% endblock content %}

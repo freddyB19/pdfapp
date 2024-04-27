@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+	
+	{% block styles %}{% endblock styles %}
+	
+	<title>{% block title %}{% endblock title %}</title>
+
+</head>
+<body>
+	<div class="container">
+		{% include "includes/header.html" %}
+	</div>
+
+	<div class="container">
+		{% include "includes/messages_flash.html" %}
+
+		{% block content %}{% endblock content %}
+	</div>
+	<script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+	
+	{% block script %}{% endblock script %}
+
+	
+	
+</body>
+</html>

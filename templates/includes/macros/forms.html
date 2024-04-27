@@ -1,0 +1,24 @@
+{% macro render_field(field) %}
+
+	{% if field.id != "csrf_token" %}
+	  <div class="mb-4">
+	  	<label class="form-label">
+	  		<strong>{{field.label}}</strong>
+	  	</label>
+	  	{{field(class_="form-control form-control-lg mt-3" ,**kwargs)|safe}}
+
+	  	<div id="helpText" class="form-text">
+	  		<small></small>
+	  	</div>
+
+	  </div>
+		
+		{% if field.errors %}
+			{% for error in  field.errors %}
+				<p class="text-danger">
+					{{error}}
+				</p>
+			{% endfor %}
+		{% endif %}
+	{% endif %}
+{% endmacro %}

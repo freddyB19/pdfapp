@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %} Metadata {% endblock title %}
+
+
+{% block content %}
+	<h1 class="text-center display-5 mb-4">Metadata del PDF</h1>
+
+	{% if metadata_pdf %}
+
+	<table class="table mb-5">
+	  <thead>
+	    <tr>
+	      <th scope="col" colspan="2" class="text-center">Información</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{% for key,value in  metadata_pdf.items() %}
+		  	<tr>
+		  		<th scope="row">{{ key|e }}</th>
+		      	<td>{{ value|e }}</td>
+		    </tr>
+	  	{% endfor %}
+	  </tbody>
+	</table>
+
+	{% else %}
+		<p>No hay metadata para mostrar</p>
+		
+	{% endif %}
+
+
+
+
+ 
+	
+
+{% endblock content %}
